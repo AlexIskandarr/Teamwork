@@ -100,22 +100,16 @@ void InputNumber(int64_t number)
 	std::cin >> number;
 }
 
-void ReplaceZero(int32_t* array, int32_t size)
-{
-	for (int32_t i = 0; i < size; ++i) 
-	{
-		if (array[i] < 0) {
-			array[i] = 0;
-		}
-	}
-
-	int32_t write_pos{};
-	for (int32_t n = 0; n < size; ++n)
-	{
-		if (array[n] > 0) 
-		{
-			array[write_pos] = array[n];
-			write_pos++;
-		}
-	}
+void DeleteNegativeNumbersAndSortZeros(int32_t* array, int32_t size) {
+    int32_t writeIndex = 0;
+    // First pass: Remove negatives and keep non-negative values
+    for (int32_t i = 0; i < size; ++i) {
+        if (array[i] >= 0) {
+            array[writeIndex++] = array[i];
+        }
+    }
+    // Second pass: Fill the remaining positions with zeros
+    for (int32_t i = writeIndex; i < size; ++i) {
+        array[i] = 0;
+    }
 }
