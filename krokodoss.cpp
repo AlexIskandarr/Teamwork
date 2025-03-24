@@ -14,6 +14,6 @@ void InputArray(int32_t*, int32_t);
 
 void InputNumber(int64_t);
 
-void ReplaceZero(int32_t*, int32_t);
-
 void EnterSize(int32_t&);
+
+void DeleteNegativeNumbersAndSortZeros(int32_t* array, int32_t size);
